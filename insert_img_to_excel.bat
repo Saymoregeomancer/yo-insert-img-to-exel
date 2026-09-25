@@ -9,7 +9,12 @@ if not "%~1"=="" echo  %~1
 echo ==========================================================
 echo.
 
-python insert_img_to_excel.py %*
+rem у релізі лежить exe (Python не потрібен), у вихідниках — .py
+if exist "%~dp0insert_img_to_excel.exe" (
+    "%~dp0insert_img_to_excel.exe" %*
+) else (
+    python insert_img_to_excel.py %*
+)
 
 echo.
 pause

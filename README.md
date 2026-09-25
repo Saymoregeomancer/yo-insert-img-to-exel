@@ -20,20 +20,27 @@
 
 Налаштування (аркуш, колонки, початковий рядок) — на початку `insert_img_to_excel.py`.
 
-## Вимоги
+## Встановлення (готовий exe — Python не потрібен)
 
-* Windows + встановлений Microsoft Excel (робота через xlwings);
-* Python 3.10+ у `PATH`.
-
-## Встановлення
-
-1. Завантажте архів з [Releases](https://github.com/Saymoregeomancer/yo-insert-img-to-exel/releases)
+1. Завантажте `yo-insert-img-to-exel.zip` з
+   [Releases](https://github.com/Saymoregeomancer/yo-insert-img-to-exel/releases/latest)
    і розпакуйте в постійне місце (меню посилається на цю папку).
-2. Запустіть `install.bat` — встановить залежності (`requirements.txt`) і додасть пункт меню.
+2. Запустіть `install.bat` — додасть пункт у меню правої кнопки.
    Права адміністратора не потрібні (запис у `HKCU`).
 
+Потрібні лише Windows і встановлений **Microsoft Excel**.
 Видалити пункт меню — `uninstall.bat`.
 
-Запуск без меню: `python insert_img_to_excel.py "C:\шлях\до\папки"`.
+## Запуск з вихідників
+
+Потрібен Python 3.10+ у `PATH`. `install.bat` у папці з вихідниками (без exe)
+сам встановить залежності з `requirements.txt` і додасть пункт меню.
+
+Без меню: `python insert_img_to_excel.py "C:\шлях\до\папки"`.
+
+## Збірка релізу
+
+`build.bat` — створює окреме venv, збирає `dist\insert_img_to_excel.exe` (PyInstaller)
+і архів `dist\yo-insert-img-to-exel.zip` з exe та батніками.
 
 > Повторний запуск на тому ж файлі вставить картинки ще раз поверх наявних.

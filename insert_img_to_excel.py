@@ -146,6 +146,11 @@ def insert_images_to_excel(
 # ---------------------------------------------------------------- main
 
 def main() -> int:
+    # exe від PyInstaller ігнорує PYTHONIOENCODING — без цього кирилиця падає в cp1252
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
+
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("folder", nargs="?", default=os.getcwd(),
